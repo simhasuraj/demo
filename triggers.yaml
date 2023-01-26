@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: Trigger
 metadata:
-  name: git-push-trigger
+  name: git-manual-trigger
 spec:
   bindings:
   - ref:
@@ -10,25 +10,25 @@ spec:
       name: git-repository
     name: git-repository
   eventListeners:
-  - name: git-listener
+  - name: git-manual-listener
     template:
-      name: git-push
+      name: git-manual
       params:
       - name: repository
-        description: The git repository to listen for push events on
+        description: The git repository to listen for manual events on
       - name: branch
-        description: The branch to listen for push events on
-    serviceAccountName: git-listener
+        description: The branch to listen for manual events on
+    serviceAccountName: git-manual-listener
     resources:
     - git-repository
   resourcetemplates:
   - apiVersion: tekton.dev/v1beta1
-    kind: TaskRun
+    kind: PipelineRun
     metadata:
-      name: git-clone-task-run
+      name: git-clone-pipeline-run
     spec:
-      taskRef:
-        name: git-clone-task
+      pipelineRef:
+        name: git-clone-pipeline
       resources:
       - name: git-repository
         resourceRef:
