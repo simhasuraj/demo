@@ -9,21 +9,26 @@ spec:
       kind: PipelineResource
       name: git-repository
     name: git-repository
-  triggerTemplate:
-    name: git-push
-    params:
-    - name: repository
-      description: The git repository to listen for push events on
-    - name: branch
-      description: The branch to listen for push events on
+  eventListeners:
+  - name: git-listener
+    template:
+      name: git-push
+      params:
+      - name: repository
+        description: The git repository to listen for push events on
+      - name: branch
+        description: The branch to listen for push events on
+    serviceAccountName: git-listener
+    resources:
+    - git-repository
   resourcetemplates:
   - apiVersion: tekton.dev/v1alpha1
-    kind: PipelineRun
+    kind: TaskRun
     metadata:
-      name: git-clone-pipeline-run
+      name: git-clone-task-run
     spec:
-      pipelineRef:
-        name: git-clone-pipeline
+      taskRef:
+        name: git-clone-task
       resources:
       - name: git-repository
         resourceRef:
