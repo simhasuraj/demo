@@ -18,5 +18,5 @@ workspaces:
         requests:
           storage: 1Gi
 params:
-- name: repo-url
-  value: https://github.com/simhasuraj/my_first_task
+- name: "repo-url"
+  value: "https://github.com/simhasuraj/my_first_task"
