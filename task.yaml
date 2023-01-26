@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: git-clone-task
+spec:
+  inputs:
+    params:
+    - name: repository
+      description: URL of the git repository to clone
+    - name: branch
+      description: The branch of the repository to clone
+  steps:
+  - name: git-clone
+    image: alpine/git
+    command: ['git']
+    args: ['clone', '-b', $(inputs.params.branch), $(inputs.params.repository)]
