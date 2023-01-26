@@ -8,7 +8,7 @@ spec:
   params:
   - name: repo-url
     type: string
-    value: https://github.com/simhasuraj/my_first_task
+    value: "https://github.com/simhasuraj/my_first_task"
 workspaces:
 - name: shared-data
   description: | 
