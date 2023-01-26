@@ -9,7 +9,7 @@ spec:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      name: clone-read
+      name: clone-read-run-
     spec:
       pipelineRef:
         name: clone-read

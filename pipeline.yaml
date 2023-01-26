@@ -23,7 +23,7 @@ tasks:
     workspace: shared-data
   params:
   - name: url
-    value: $(params.name.value)
+    value: $(params.repo-url)
 - name: show-readme
   runAfter: ["fetch-source"]
   taskRef:
