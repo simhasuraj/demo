@@ -1,11 +1,11 @@
-apiVersion: triggers.tekton.dev/v1alpha1
+apiVersion: triggers.tekton.dev/v1beta1
 kind: Trigger
 metadata:
   name: git-push-trigger
 spec:
   bindings:
   - ref:
-      apiVersion: tekton.dev/v1alpha1
+      apiVersion: tekton.dev/v1beta1
       kind: PipelineResource
       name: git-repository
     name: git-repository
@@ -22,7 +22,7 @@ spec:
     resources:
     - git-repository
   resourcetemplates:
-  - apiVersion: tekton.dev/v1alpha1
+  - apiVersion: tekton.dev/v1beta1
     kind: TaskRun
     metadata:
       name: git-clone-task-run
