@@ -16,6 +16,6 @@ spec:
             resource: git-repository
       params:
         - name: repository
-          value: https://github.com/example/repository.git
+          value: https://github.com/simhasuraj/my_first_task
         - name: branch
           value: main
