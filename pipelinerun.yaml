@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: clone-read-run-
+  generateName: clone-read
 spec:
   pipelineRef:
     name: clone-read
@@ -20,4 +20,3 @@ workspaces:
 params:
 - name: repo-url
   value: https://github.com/simhasuraj/my_first_task
-  
